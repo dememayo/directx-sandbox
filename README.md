@@ -1,4 +1,4 @@
-# vscode-directx-playground
+# directx-sandbox
 
 VSCode + MSVC で C++ / DirectX を学習するためのリポジトリ。
 
