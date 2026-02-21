@@ -1,4 +1,6 @@
 /DUNICODE
 /D_UNICODE
+/D_DEBUG
 user32.lib
 d3d11.lib
+d3dcompiler.lib

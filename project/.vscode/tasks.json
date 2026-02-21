@@ -1,33 +1,26 @@
 {
     "version": "2.0.0",
-    "windows": {
-        "options": {
-            "shell": {
-                "executable": "cmd.exe",
-                "args": [
-                    "/C",
-                    // The path to VsDevCmd.bat depends on the version of Visual Studio you have installed.
-                    "\"C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/Common7/Tools/VsDevCmd.bat\"",
-                    "&&"
-                ]
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "build",
+            "command": "${workspaceFolder}\\build.bat",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "@${workspaceFolder}/build.rsp",
+                "/Fo:${workspaceFolder}\\bin\\${fileBasenameNoExtension}.obj",
+                "/Fd:${workspaceFolder}\\bin\\vc140.pdb",
+                "/Fe:${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
+                "${file}",
+                "/link",
+                "/PDB:${workspaceFolder}\\bin\\vc140.pdb"
+            ],
+            "problemMatcher": ["$msCompile"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
             }
         }
-    },
-    "tasks": [{
-        "type": "shell",
-        "label": "cl.exe build active file",
-        "command": "cl.exe",
-        "args": [
-            "/Zi",
-            "/EHsc",
-            "@${workspaceFolder}/build.rsp",
-            "/Fe:${fileDirname}\\${fileBasenameNoExtension}.exe",
-            "${file}"
-        ],
-        "problemMatcher": ["$msCompile"],
-        "group": {
-            "kind": "build",
-            "isDefault": true
-        }
-    }]
+    ]
 }
