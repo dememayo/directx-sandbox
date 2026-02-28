@@ -6,7 +6,7 @@
             "name": "Debug built exe (no rebuild)",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}\\bin\\sandbox.exe",
+            "program": "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,

@@ -6,14 +6,15 @@
             "label": "build",
             "command": "${workspaceFolder}\\build.bat",
             "args": [
-                "/Z7",
+                "/Zi",
                 "/EHsc",
                 "@${workspaceFolder}/build.rsp",
-                "/Fo:${workspaceFolder}\\bin\\",
-                "/Fe:${workspaceFolder}\\bin\\sandbox.exe",
-                "${workspaceFolder}\\source\\*.cpp",
+                "/Fo:${workspaceFolder}\\bin\\${fileBasenameNoExtension}.obj",
+                "/Fd:${workspaceFolder}\\bin\\vc140.pdb",
+                "/Fe:${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
+                "${file}",
                 "/link",
-                "/PDB:${workspaceFolder}\\bin\\sandbox.pdb"
+                "/PDB:${workspaceFolder}\\bin\\vc140.pdb"
             ],
             "problemMatcher": ["$msCompile"],
             "group": {
