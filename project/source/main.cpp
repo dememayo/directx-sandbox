@@ -1,3 +1,9 @@
+//--------------------------------------------------------------------------------------
+// File: main.cpp
+//
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
+//--------------------------------------------------------------------------------------
 #include <windows.h>
 #include <d3d11_1.h>
 #include <DirectXColors.h>

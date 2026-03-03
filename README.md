@@ -14,3 +14,13 @@ Open this project from **Developer Command Prompt for VS**, then:
 
 - `Ctrl + Shift + B` : Build
 - `F5` : Run / Debug
+
+## ライセンスについて
+
+本リポジトリには Microsoft の DirectX サンプルコードを元にしたコードが含まれています。
+
+Original code:
+Copyright (c) Microsoft Corporation  
+Licensed under the MIT License (MIT)
+
+詳細は LICENSE ファイルをご確認ください。
