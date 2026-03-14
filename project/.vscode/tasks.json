@@ -2,24 +2,46 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "build-dx11",
             "type": "shell",
-            "label": "build",
-            "command": "${workspaceFolder}\\build.bat",
+            "command": "${workspaceFolder}\\build_dx11.bat",
             "args": [
                 "/Z7",
                 "/EHsc",
-                "@${workspaceFolder}/build.rsp",
+                "@${workspaceFolder}/build_dx11.rsp",
                 "/Fo:${workspaceFolder}\\bin\\",
                 "/Fe:${workspaceFolder}\\bin\\sandbox.exe",
                 "${workspaceFolder}\\source\\*.cpp",
                 "/link",
                 "/PDB:${workspaceFolder}\\bin\\sandbox.pdb"
             ],
-            "problemMatcher": ["$msCompile"],
+            "group": "build",
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        },
+        {
+            "label": "build-dx12",
+            "type": "shell",
+            "command": "${workspaceFolder}\\build_dx12.bat",
+            "args": [
+                "/Z7",
+                "/EHsc",
+                "/MDd",
+                "@${workspaceFolder}/build_dx12.rsp",
+                "/Fo:${workspaceFolder}\\bin\\",
+                "/Fe:${workspaceFolder}\\bin\\sandbox.exe",
+                "${workspaceFolder}\\source\\*.cpp",
+                "/link",
+                "/PDB:${workspaceFolder}\\bin\\sandbox.pdb"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ]
         }
     ]
 }
