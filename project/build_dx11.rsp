@@ -1,6 +1,7 @@
 /DUNICODE
 /D_UNICODE
 /D_DEBUG
+/DSANDBOX_RENDERER_DX11
 user32.lib
 d3d11.lib
 d3dcompiler.lib
