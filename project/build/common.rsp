@@ -1,0 +1,9 @@
+/Z7
+/EHsc
+/MDd
+/I source
+/I pch
+/DUNICODE
+/D_UNICODE
+/D_DEBUG
+/Fpbin/pch.pch

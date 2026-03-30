@@ -9,6 +9,14 @@
 //
 //*********************************************************
 
+cbuffer ConstantBuffer : register( b0 )
+{
+    matrix World;
+    matrix View;
+    matrix Projection;
+    float4 padding[4];
+}
+
 struct PSInput
 {
     float4 position : SV_POSITION;
@@ -19,7 +27,9 @@ PSInput VSMain(float4 position : POSITION, float4 color : COLOR)
 {
     PSInput result;
 
-    result.position = position;
+    result.position = mul(position, World);
+    result.position = mul(result.position, View);
+    result.position = mul(result.position, Projection);
     result.color = color;
 
     return result;
