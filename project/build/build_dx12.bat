@@ -1,6 +1,8 @@
 @echo off
 
-set BIN_DIR=%~dp0bin
+cd /d %~dp0..
+
+set BIN_DIR=bin
 
 if not exist "%BIN_DIR%" mkdir "%BIN_DIR%"
 del /s /q "%BIN_DIR%\*.*" 2>nul
@@ -11,5 +13,11 @@ echo Compile shaders
 dxc -Tvs_6_0 -EVSMain shader\tutorial.hlsl -Fo bin\tutorial_VSMain.cso
 dxc -Tps_6_0 -EPSMain shader\tutorial.hlsl -Fo bin\tutorial_PSMain.cso
 
-echo Compile C++
-cl.exe %*
+REM === PCH ===
+cl /c @build/common.rsp @build/def_dx12.rsp /Yc"pch.h" /Fo"bin/pch.obj" pch/pch.cpp
+
+REM === Compile ===
+cl /c @build/common.rsp @build/def_dx12.rsp /Yu"pch.h" /Fo"bin\\" source/*.cpp
+
+REM === Link ===
+link @"build/link_dx12.rsp" bin\*.obj /OUT:"bin/sandbox.exe"

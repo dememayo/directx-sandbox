@@ -1,8 +1,0 @@
-/DUNICODE
-/D_UNICODE
-/D_DEBUG
-/DSANDBOX_RENDERER_DX12
-user32.lib
-d3d12.lib
-d3dcompiler.lib
-dxgi.lib
