@@ -1,6 +1,8 @@
 #pragma once
 #include <windef.h>
 
+class Camera;
+
 class Renderer
 {
 private:
@@ -9,6 +11,6 @@ private:
 public:
     Renderer(HWND hWnd) : m_hWnd(hWnd) {}
     bool Initialize();
-    void Render();
+    void Render(const Camera& cam);
     void Cleanup();
 };

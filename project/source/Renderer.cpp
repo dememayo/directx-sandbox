@@ -2,6 +2,7 @@
 #include <d3dcompiler.h>
 #include "Renderer.h"
 #include "GraphicsBuffer.h"
+#include "Camera.h"
 
 using namespace DirectX;
 #ifdef SANDBOX_RENDERER_DX12
@@ -753,15 +754,9 @@ bool Renderer::Initialize()
     return true;
 }
 
-void Renderer::Render()
+void Renderer::Render(const Camera& camera)
 {
-    // Update our time
-    static float t = 0.0f;
-    static ULONGLONG timeStart = 0;
-    ULONGLONG timeCur = GetTickCount64();
-    if (timeStart == 0) timeStart = timeCur;
-    t = (timeCur - timeStart) / 1000.0f;
-    g_World = XMMatrixRotationY(t);
+    g_View = camera.GetViewMatrix();
 
     const float clearColor[] = { 0.0f, 0.2f, 0.4f, 1.0f };
 #ifdef SANDBOX_RENDERER_DX12
