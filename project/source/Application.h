@@ -2,6 +2,7 @@
 #include <windef.h>
 
 class Renderer;
+class Input;
 
 class Application
 {
@@ -12,6 +13,7 @@ private:
     int m_nCmdShow;
     HWND m_hWnd;
     std::unique_ptr<Renderer> m_Renderer;
+    std::unique_ptr<Input> m_Input;
 
 public:
     static int Run(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow);
@@ -25,4 +27,6 @@ private:
     bool InitWindow();
     int MainLoop();
     void Cleanup();
+    LRESULT Application::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+    static LRESULT CALLBACK StaticWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 };

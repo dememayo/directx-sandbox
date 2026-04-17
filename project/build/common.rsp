@@ -1,6 +1,8 @@
 /Z7
 /EHsc
 /MDd
+/utf-8
+/std:c++17
 /I source
 /I pch
 /DUNICODE

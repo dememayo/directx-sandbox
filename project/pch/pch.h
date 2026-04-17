@@ -13,6 +13,7 @@
 #include <DirectXColors.h>
 #include <stdexcept>
 #include <memory>
+#include <algorithm>
 
 #define SAFE_RELEASE(p) { if ((p)) { (p)->Release(); (p) = nullptr; } }
 

@@ -1,12 +1,27 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "DX11",
+            "compilerPath": "cl.exe",
+            "defines": [
+                "SANDBOX_RENDERER_DX11",
+                "UNICODE",
+                "_UNICODE",
+                "_DEBUG"
+            ],
+            "intelliSenseMode": "windows-msvc-x64",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ]
+        },
+        {
+            "name": "DX12",
             "compilerPath": "cl.exe",
             "defines": [
                 "SANDBOX_RENDERER_DX12",
                 "UNICODE",
-                "_UNICODE"
+                "_UNICODE",
+                "_DEBUG"
             ],
             "intelliSenseMode": "windows-msvc-x64",
             "includePath": [
